@@ -19,6 +19,14 @@ dotenv = "0.15.0"
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3.22", features = ["env-filter"] }
 
+# Database ORM
+sea-orm = { version = "1.1", features = [
+	"sqlx-mysql",           # MySQL/MariaDB driver
+	"runtime-tokio-rustls", # Tokio runtime + Rustls TLS
+	"macros",               # Entity macros
+	"with-uuid",            # UUID support
+	"with-chrono",          # DateTime support
+] }
 
 # UUID
 uuid = { version = "1.11.0", features = ["v4", "serde"] }
@@ -37,7 +45,10 @@ jsonwebtoken = "9.3"
 
 # Password hashing
 argon2 = "0.5"
+clap = { version = "4.5.59", features = ["derive", "env"] }
 
 [dev-dependencies]
+sea-orm-cli = "1.0"
+sea-orm = { version = "1.1" }
 tower = { version = "0.5", features = ["util"] }
 http-body-util = "0.1"

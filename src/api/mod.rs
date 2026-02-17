@@ -1,5 +1,6 @@
+use crate::app_state::AppState;
 use axum::Router;
 
-public async fn get_router() -> Router {
-	Router:new()
+pub async fn build_app(app_state: AppState) -> Router {
+    Router::new().with_state(app_state)
 }
