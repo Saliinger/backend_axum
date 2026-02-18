@@ -1,7 +1,7 @@
 [package]
 name = "backend_axum"
 version = "0.1.0"
-authors = ["anoukan", "jalbiser", "ekrause"]
+authors = ["anoukan"]
 edition = "2024"
 
 [dependencies]
@@ -46,6 +46,7 @@ jsonwebtoken = "9.3"
 # Password hashing
 argon2 = "0.5"
 clap = { version = "4.5.59", features = ["derive", "env"] }
+redis = "1.0.3"
 
 [dev-dependencies]
 sea-orm-cli = "1.0"
