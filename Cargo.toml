@@ -47,6 +47,7 @@ jsonwebtoken = "9.3"
 argon2 = "0.5"
 clap = { version = "4.5.59", features = ["derive", "env"] }
 redis = "1.0.3"
+async-trait = "0.1.89"
 
 [dev-dependencies]
 sea-orm-cli = "1.0"

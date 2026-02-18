@@ -1,1 +1,1 @@
-contain all endpoint and web response
+connection to redis and the db setup

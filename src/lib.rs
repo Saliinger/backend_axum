@@ -1,5 +1,9 @@
 pub mod api;
+pub mod app_error;
 pub mod app_state;
 pub mod config;
-pub mod db;
+pub mod domain;
+pub mod dto;
+pub mod entities;
+pub mod infra;
 pub mod utils;
