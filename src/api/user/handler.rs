@@ -21,7 +21,7 @@ pub async fn get_all(State(state): State<AppState>) -> Result<Json<Vec<UserDto>>
 }
 
 pub async fn get_by_id(
-    Path(id): Path<i32>,
+    Path(id): Path<String>,
     State(state): State<AppState>,
 ) -> Result<Json<UserDto>, StatusCode> {
     match state.user_service.get_by_id(id).await {

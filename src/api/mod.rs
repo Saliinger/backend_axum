@@ -1,3 +1,4 @@
+pub mod me;
 pub mod router;
 pub mod user;
 

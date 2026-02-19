@@ -11,8 +11,11 @@ impl UserRepository {
     pub fn new(db: DatabaseConnection) -> Self {
         Self { db }
     }
+}
 
-    pub async fn get_all(&self) -> Result<Vec<(user::Model, Option<user_stats::Model>)>, AppError> {
+#[async_trait::async_trait]
+impl crate::domain::user::repository::UserRepository for UserRepository {
+    async fn get_all(&self) -> Result<Vec<(user::Model, Option<user_stats::Model>)>, AppError> {
         let users = user::Entity::find()
             .find_also_related(user_stats::Entity)
             .all(&self.db)
@@ -22,11 +25,11 @@ impl UserRepository {
         Ok(users)
     }
 
-    pub async fn get_by_id(
+    async fn get_by_id(
         &self,
-        id: i32,
+        id: String,
     ) -> Result<(user::Model, Option<user_stats::Model>), AppError> {
-        let user = user::Entity::find_by_id(id.to_string())
+        let user = user::Entity::find_by_id(id)
             .find_also_related(user_stats::Entity)
             .one(&self.db)
             .await

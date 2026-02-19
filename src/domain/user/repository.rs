@@ -6,6 +6,6 @@ pub trait UserRepository: Send + Sync {
     async fn get_all(&self) -> Result<Vec<(user::Model, Option<user_stats::Model>)>, AppError>;
     async fn get_by_id(
         &self,
-        id: i32,
+        id: String,
     ) -> Result<(user::Model, Option<user_stats::Model>), AppError>;
 }

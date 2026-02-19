@@ -1,11 +1,15 @@
-use super::config;
-use crate::domain::game::service::GameService;
-use crate::domain::user::service::UserService;
+use crate::{
+    config::Config,
+    domain::{game::service::GameService, me::service::MeService, user::service::UserService},
+    infra::redis::Redis,
+};
+use std::sync::Arc;
 
 #[derive(Clone)]
 pub struct AppState {
-    pub config: config::Config,
-    pub redis: redis::Client,
-    pub user_service: UserService,
-    pub game_service: GameService,
+    pub config: Config,
+    pub redis: Redis,
+    pub user_service: Arc<UserService>,
+    pub game_service: Arc<GameService>,
+    pub me_service: Arc<MeService>,
 }

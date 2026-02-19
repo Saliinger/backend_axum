@@ -2,9 +2,9 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Json, Response},
 };
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct UserDto {
     pub id: String,
     pub name: String,
@@ -12,7 +12,7 @@ pub struct UserDto {
     pub stats: StatsDto,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct StatsDto {
     pub id: String,
     pub elo: i32,

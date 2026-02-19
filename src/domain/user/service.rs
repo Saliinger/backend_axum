@@ -23,7 +23,7 @@ impl UserService {
         Ok(dtos)
     }
 
-    pub async fn get_by_id(&self, id: i32) -> Result<UserDto, AppError> {
+    pub async fn get_by_id(&self, id: String) -> Result<UserDto, AppError> {
         let user = self.repo.get_by_id(id).await?;
         Ok(UserDto::from(user))
     }
