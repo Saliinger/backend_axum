@@ -49,6 +49,7 @@ clap = { version = "4.5.59", features = ["derive", "env"] }
 redis = "1.0.3"
 async-trait = "0.1.89"
 swagger = "7.0.0"
+cookie = "0.18.1"
 
 [dev-dependencies]
 sea-orm-cli = "1.0"

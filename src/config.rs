@@ -5,5 +5,5 @@ pub struct Config {
     #[clap(long, env)]
     pub port: u16,
     #[clap(long, env)]
-    pub jwt_key: String,
+    pub nextauth_secret: String,
 }
